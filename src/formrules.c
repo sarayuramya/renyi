@@ -41,7 +41,7 @@
 
 #include "defns.h"
 #include "extern.h"
-
+#include "math.h"
 #include "transform.h"
 #include "redefine.h"
 
@@ -361,8 +361,9 @@ void PopCondition()
 /*	ruleset if it is sufficiently accurate				 */
 /*									 */
 /*************************************************************************/
-
-#define TI(a,b)		(((a)+(b)) * Log((a)+(b)) - (a) * Log(a) - (b) * Log(b))
+#define alpha 4.50
+#define q 1/(1-alpha)
+#define TI(a,b)		((Log(pow(((a)+(b)),alpha)))*q - (Log(pow(a,alpha)))*q - (Log(pow(b,alpha)))*q)
 
 
 void PruneRule(Condition Cond[], ClassNo TargetClass)
