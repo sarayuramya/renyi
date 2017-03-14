@@ -361,9 +361,9 @@ void PopCondition()
 /*	ruleset if it is sufficiently accurate				 */
 /*									 */
 /*************************************************************************/
-#define alpha 4.50
+#define alpha 8.50
 #define q 1/(1-alpha)
-#define TI(a,b)		((1-(pow(((a)+(b)),alpha)))*q - (1-(pow(a,alpha)))*q - (1-(pow(b,alpha)))*q)
+#define TI(a,b)		(((a)+(b)) * Log((a)+(b)) - (a) * Log(a) - (b) * Log(b))
 
 
 void PruneRule(Condition Cond[], ClassNo TargetClass)
