@@ -371,7 +371,7 @@ void Merge(DiscrValue x, DiscrValue y, CaseCount Cases)
     double	Entr=0;
     CaseCount	KnownCases=0;
     int		R, C;
-double alpha =4.50;
+double alpha =8.50;
 	int i=0;
 	double q=1/(1-alpha);
 	double count[20];
@@ -388,7 +388,7 @@ double alpha =4.50;
 	{
 		count[i] = -1 * count[i];
 	}			
-	Entr = Entr /(pow(KnownCases,alpha));
+	Entr = Entr /KnownCases;
    	Entr = Log(Entr);
 	Entr *= q;	
 	count[i] /= KnownCases;
@@ -450,7 +450,7 @@ void EvaluatePair(DiscrValue x, DiscrValue y, CaseCount Cases)
     ClassNo	c;
     double	Entr=0;
     CaseCount	KnownCases=0, F;
-double alpha= 4.50;
+double alpha=8.50;
 	int i=0;
 	double count[20];
 double q = 1/(1-alpha);
@@ -476,7 +476,7 @@ double q = 1/(1-alpha);
 	{
 		count[i] = -1 * count[i];
 	}
-	Entr = Entr /(pow(KnownCases,alpha));
+	Entr = Entr /KnownCases;
     	Entr =Log(Entr)*q;
 	count[i] /= KnownCases;
 	Entr *= count[i];
